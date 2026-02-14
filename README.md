@@ -1,73 +1,80 @@
-# Welcome to your Lovable project
+# Innovation Imperial Landing Page
 
-## Project info
+Welcome to the **Innovation Imperial** landing page project. This is a modern, high-performance portfolio and service showcase website designed to drive client conviction and display creative work.
 
-**URL**: https://lovable.dev/projects/75d5ef41-c6c7-4c54-8f34-64c8d194757e
+## Project Overview
 
-## How can I edit this code?
+This project is a React-based single-page application (SPA) built for speed and visual impact. It features a responsive design, interactive animations, and a structured layout to guide visitors from introduction to contact.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Hero Section**: Engaging introduction with interactive background elements.
+- **Projects Portfolio**: A Bento-grid style showcase of past work and case studies.
+- **Services**: Detailed breakdown of offered services.
+- **Process**: Step-by-step explanation of the workflow.
+- **Testimonials**: Client feedback carousels to build trust.
+- **Contact**: Integrated contact form and information.
+- **SEO Optimized**: Built-in SEO components for better visibility.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/75d5ef41-c6c7-4c54-8f34-64c8d194757e) and start prompting.
+## Technology Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+This project leverages a modern web development stack for optimal performance and developer experience:
 
-**Use your preferred IDE**
+### Core
+- **[React](https://react.dev/)**: library for web and native user interfaces.
+- **[TypeScript](https://www.typescriptlang.org/)**: Strongly typed JavaScript for better code quality.
+- **[Vite](https://vitejs.dev/)**: Next-generation frontend tooling for fast builds and hot module replacement (HMR).
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Styling & UI
+- **[Tailwind CSS](https://tailwindcss.com/)**: Utility-first CSS framework for rapid UI development.
+- **[Shadcn UI](https://ui.shadcn.com/)**: Beautifully designed components built with Radix UI and Tailwind CSS.
+- **[Radix UI](https://www.radix-ui.com/)**: Primitives for building high-quality, accessible design systems.
+- **[Lucide React](https://lucide.dev/)**: Beautiful & consistent icon set.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Animation & Interaction
+- **[Framer Motion](https://www.framer.com/motion/)**: Production-ready motion library for React.
+- **[Remotion](https://www.remotion.dev/)**: For programmatic video creation and playback.
 
-Follow these steps:
+### State & Data
+- **[TanStack Query (React Query)](https://tanstack.com/query/latest)**: Powerful asynchronous state management.
+- **[React Router](https://reactrouter.com/)**: Client-side routing.
+- **[React Hook Form](https://react-hook-form.com/)**: Performant, flexible and extensible forms with easy validation.
+- **[Zod](https://zod.dev/)**: TypeScript-first schema declaration and validation.
 
+## Getting Started
+
+Follow these steps to set up the project locally:
+
+### Prerequisites
+
+- Node.js & npm installed on your machine. [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating) is recommended.
+
+### Installation
+
+1.  **Clone the repository:**
+    ```sh
+    git clone <YOUR_GIT_URL>
+    cd <YOUR_PROJECT_NAME>
+    ```
+
+2.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
+
+3.  **Start the development server:**
+    ```sh
+    npm run dev
+    ```
+    The application will be available at `http://localhost:8080` (or similar).
+
+## Deployment
+
+You can deploy this project to any static hosting service like Vercel, Netlify, or GitHub Pages.
+
+**Build for production:**
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm run build
 ```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/75d5ef41-c6c7-4c54-8f34-64c8d194757e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This will generate a `dist` folder containing the optimized production build.
