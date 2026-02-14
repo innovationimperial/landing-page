@@ -1,0 +1,3 @@
+[    3277ms] [ERROR] Failed to load resource: net::ERR_NAME_NOT_RESOLVED @ https://qnmafrxhrqdeqolztran.supabase.co/rest/v1/products?select=*%2Ccategories%28name%2Cslug%29&in_stock=eq.true&order=created_at.desc:0
+[    3278ms] [ERROR] Error fetching products: {message: TypeError: Failed to fetch, details: TypeError: Failed to fetch
+    at https://teejayba…kehouse.store/assets/index-X5OVwzpg.js:268:20085), hint: , code: } @ https://teejaybakehouse.store/assets/index-X5OVwzpg.js:329

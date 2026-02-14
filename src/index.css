@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Deep cinematic backgrounds */
+    --background: 272 60% 5%;
+    --foreground: 0 0% 98%;
+
+    /* Glass card surfaces */
+    --card: 180 30% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 180 40% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Dark purple accent */
+    --primary: 270 60% 55%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary - Glass frost */
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 180 60% 5%;
+
+    /* Muted surfaces */
+    --muted: 180 30% 12%;
+    --muted-foreground: 0 0% 75%;
+
+    /* Accent - Rich purple */
+    --accent: 270 70% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Subtle borders for glass */
+    --border: 0 0% 100%;
+    --input: 180 20% 15%;
+    --ring: 270 60% 55%;
+
+    --radius: 1.25rem;
+
+    /* Custom tokens for cinematic design */
+    --bg-deep: 180 60% 5%;
+    --bg-darker: 0 0% 4%;
+    --glass-frost: 0 0% 100%;
+    --glass-border: 0 0% 100%;
+    --accent-warm: 270 60% 60%;
+    --highlight-magenta: 280 80% 55%;
+    --muted-text: 0 0% 75%;
+    --subtle-white: 0 0% 92%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(180 60% 5%) 0%, hsl(0 0% 4%) 100%);
+    --gradient-cosmic: radial-gradient(ellipse at center, hsl(180 30% 8% / 0.4) 0%, hsl(0 0% 2%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(270 60% 70%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.08) 0%, hsl(0 0% 100% / 0.04) 100%);
+
+    /* Shadows & Glow */
+    --shadow-glass: 0 8px 32px hsl(0 0% 0% / 0.3), inset 0 1px 0 hsl(0 0% 100% / 0.1);
+    --shadow-glow: 0 0 40px hsl(270 60% 55% / 0.3);
+    --shadow-card-hover: 0 12px 48px hsl(0 0% 0% / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
