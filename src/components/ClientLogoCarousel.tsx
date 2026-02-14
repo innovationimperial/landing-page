@@ -46,9 +46,8 @@ const ClientLogoCarousel: React.FC<ClientLogoCarouselProps> = ({ logos }) => {
                                 src={logo.src}
                                 alt={logo.alt}
                                 className="h-12 w-auto object-contain max-w-[150px]
-                            grayscale opacity-70 transition-all duration-300
-                            group-hover:grayscale-0 group-hover:opacity-100 group-hover:filter-none
-                            filter brightness-0  /* Makes logos black. Removed 'invert' to fix visibility on light background. */
+                            grayscale opacity-60 transition-all duration-500
+                            group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110
                             "
                                 // Note: The user requested "black and white". 
                                 // Since the theme is dark (suggested by glassmorphism and "premium"), 

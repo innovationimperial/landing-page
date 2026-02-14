@@ -129,11 +129,19 @@ const Hero = () => {
             {/* Featured Clients Card */}
             <div className="mt-6 p-6 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass">
               <div className="text-sm text-muted-foreground mb-4">Featured Clients</div>
-              <ClientLogoCarousel logos={portfolioData.map(p => ({
-                src: p.logo || "/placeholder.svg",
-                alt: p.title,
-                url: p.url
-              })).filter(p => p.src && p.src !== "/placeholder.svg")} />
+              <ClientLogoCarousel logos={[
+                ...portfolioData.map(p => ({
+                  src: p.logo || "/placeholder.svg",
+                  alt: p.title,
+                  url: p.url
+                })).filter(p => p.src && p.src !== "/placeholder.svg"),
+                {
+                  src: "/client-logos/contas-logo.svg",
+                  alt: "Contas - Accounting & Advisory",
+                  url: "https://contas.co.za/" // Optional: remove URL if they don't want it clickable, but request said "do not include site in portfolio", implying not in the main list. 
+                  // I will keep it clickable for now as usually desired.
+                }
+              ]} />
               {/* Fallback for when no logos are loaded yet? No, filter handles it. */}
             </div>
           </div>
