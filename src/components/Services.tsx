@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Layers, Code, Palette, Target, Search, Grid3x3, Beaker, Rocket } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
 
 const services = [
   {
@@ -53,7 +54,7 @@ const Services = () => {
     <section className="relative py-32" id="services">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
-        <div className="mb-16 animate-fade-in">
+        <ScrollReveal className="mb-16">
           <Badge variant="secondary" className="rounded-full px-4 py-2 bg-gradient-glass backdrop-blur-md border border-glass-border/[0.06] text-muted-foreground mb-6">
             Our Expertise
           </Badge>
@@ -64,103 +65,106 @@ const Services = () => {
           <p className="text-lg text-muted-foreground max-w-2xl">
             From concept to launch, we deliver end-to-end design solutions tailored to your business goals.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, idx) => (
-            <div
+            <ScrollReveal
               key={service.id}
-              className={`group relative p-8 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass hover:shadow-card-hover transition-all duration-500 animate-fade-in ${service.highlight ? "lg:col-span-2" : ""
-                }`}
-              style={{ animationDelay: `${idx * 0.1}s` }}
+              transition={{ duration: 0.8, delay: idx * 0.1 }}
+              className={service.highlight ? "md:col-span-2" : ""}
             >
-              {/* Ambient glow on hover */}
-              <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/10 via-transparent to-highlight-magenta/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+              <div
+                className={`group relative p-8 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass hover:shadow-card-hover transition-all duration-500 h-full`}
+              >
+                {/* Ambient glow on hover */}
+                <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/10 via-transparent to-highlight-magenta/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
-              <div className="relative">
-                {/* Header with icon and tag */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-glass border border-glass-border/[0.1] flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <service.icon className="w-8 h-8 text-accent-warm" />
-                  </div>
-                  {service.tag && (
-                    <Badge className="rounded-full px-3 py-1 bg-highlight-magenta/10 text-highlight-magenta border-highlight-magenta/20">
-                      {service.tag}
-                    </Badge>
-                  )}
-                </div>
-
-                {/* Title & Description */}
-                <h3 className="text-2xl font-display font-semibold text-foreground mb-4 group-hover:text-accent-warm transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-                {/* Features/Process (for UI/UX) */}
-                {service.features && (
-                  <div className="flex flex-wrap gap-3">
-                    {service.features.map((feature) => (
-                      <div
-                        key={feature.name}
-                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/20 border border-glass-border/[0.08] group-hover:bg-muted/30 transition-colors"
-                      >
-                        <feature.icon className="w-4 h-4 text-muted-foreground" />
-                        <span className="text-sm text-muted-foreground">{feature.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Badges (for Development & Branding) */}
-                {service.badges && (
-                  <div className="space-y-3">
-                    {service.badges.map((badge) => (
-                      <div
-                        key={badge.name}
-                        className="flex items-center justify-between px-4 py-3 rounded-2xl bg-muted/20 border border-glass-border/[0.08] group-hover:bg-muted/30 transition-colors"
-                      >
-                        <span className="text-sm text-foreground">{badge.name}</span>
-                        {badge.icon && (
-                          <div className="w-5 h-5 rounded-full bg-accent-warm/20 border border-accent-warm/30 flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full bg-accent-warm" />
-                          </div>
-                        )}
-                      </div>
-                    ))}
+                <div className="relative">
+                  {/* Header with icon and tag */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-glass border border-glass-border/[0.1] flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                      <service.icon className="w-8 h-8 text-accent-warm" />
+                    </div>
                     {service.tag && (
-                      <Badge className="rounded-full px-3 py-1 text-xs bg-gradient-glass backdrop-blur-md border border-glass-border/[0.1]">
-                        ★ Enterprise ready
+                      <Badge className="rounded-full px-3 py-1 bg-highlight-magenta/10 text-highlight-magenta border-highlight-magenta/20">
+                        {service.tag}
                       </Badge>
                     )}
                   </div>
-                )}
 
-                {/* Highlight section (for Strategy) */}
-                {service.highlight && (
-                  <div className="mt-8 pt-8 border-t border-glass-border/[0.1]">
-                    <h4 className="text-lg font-semibold text-foreground mb-4">Transform your vision into reality</h4>
-                    <div className="flex flex-wrap gap-3 mb-6">
-                      {["Discovery", "Planning", "Execution", "Optimization", "Scale"].map((phase) => (
-                        <Badge
-                          key={phase}
-                          variant="outline"
-                          className="rounded-full px-4 py-2 bg-muted/20 border-glass-border/[0.1]"
+                  {/* Title & Description */}
+                  <h3 className="text-2xl font-display font-semibold text-foreground mb-4 group-hover:text-accent-warm transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  {/* Features/Process (for Website/Ecommerce) */}
+                  {service.features && (
+                    <div className="flex flex-wrap gap-3">
+                      {service.features.map((feature) => (
+                        <div
+                          key={feature.name}
+                          className="flex items-center gap-2 px-4 py-2 rounded-full bg-muted/20 border border-glass-border/[0.08] group-hover:bg-muted/30 group-hover:scale-105 transition-all"
                         >
-                          {phase}
-                        </Badge>
+                          <feature.icon className="w-4 h-4 text-muted-foreground" />
+                          <span className="text-sm text-muted-foreground">{feature.name}</span>
+                        </div>
                       ))}
                     </div>
-                    <p className="text-sm text-muted-foreground flex items-center gap-2">
-                      <Target className="w-4 h-4" />
-                      Drive measurable growth and engagement.
-                    </p>
-                  </div>
-                )}
+                  )}
+
+                  {/* Badges (for Development & Branding) */}
+                  {service.badges && (
+                    <div className="space-y-3">
+                      {service.badges.map((badge) => (
+                        <div
+                          key={badge.name}
+                          className="flex items-center justify-between px-4 py-3 rounded-2xl bg-muted/20 border border-glass-border/[0.08] group-hover:bg-muted/30 group-hover:translate-x-1 transition-all"
+                        >
+                          <span className="text-sm text-foreground">{badge.name}</span>
+                          {badge.icon && (
+                            <div className="w-5 h-5 rounded-full bg-accent-warm/20 border border-accent-warm/30 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-accent-warm" />
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                      {service.tag && (
+                        <Badge className="rounded-full px-3 py-1 text-xs bg-gradient-glass backdrop-blur-md border border-glass-border/[0.1]">
+                          ★ Enterprise ready
+                        </Badge>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Highlight section (for Strategy) */}
+                  {service.highlight && (
+                    <div className="mt-8 pt-8 border-t border-glass-border/[0.1]">
+                      <h4 className="text-lg font-semibold text-foreground mb-4">Transform your vision into reality</h4>
+                      <div className="flex flex-wrap gap-3 mb-6">
+                        {["Discovery", "Planning", "Execution", "Optimization", "Scale"].map((phase) => (
+                          <Badge
+                            key={phase}
+                            variant="outline"
+                            className="rounded-full px-4 py-2 bg-muted/20 border-glass-border/[0.1] group-hover:border-accent-warm/30 transition-colors"
+                          >
+                            {phase}
+                          </Badge>
+                        ))}
+                      </div>
+                      <p className="text-sm text-muted-foreground flex items-center gap-2">
+                        <Target className="w-4 h-4" />
+                        Drive measurable growth and engagement.
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

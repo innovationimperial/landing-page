@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,7 @@ import {
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { ScrollReveal } from "./ScrollReveal";
 
 const contactInfo = [
   {
@@ -117,7 +119,7 @@ const Contact = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <ScrollReveal className="text-center mb-16">
           <Badge
             variant="secondary"
             className="rounded-full px-4 py-2 bg-gradient-glass backdrop-blur-md border border-glass-border/[0.06] text-muted-foreground mb-6"
@@ -134,34 +136,37 @@ const Contact = () => {
             Have a project in mind? We'd love to hear about it. Send us a
             message and we'll get back to you.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Contact Info */}
-          <div className="lg:col-span-2 space-y-6 animate-fade-in">
+          <div className="lg:col-span-2 space-y-6">
             {contactInfo.map((info, idx) => (
-              <div
+              <ScrollReveal
                 key={info.label}
-                className="group flex items-center gap-4 p-6 rounded-2xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] hover:shadow-card-hover transition-all duration-500"
-                style={{ animationDelay: `${idx * 0.1}s` }}
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-glass border border-glass-border/[0.1] flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <info.icon className="w-6 h-6 text-accent-warm" />
+                <div
+                  className="group flex items-center gap-4 p-6 rounded-2xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] hover:shadow-card-hover transition-all duration-500"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-glass border border-glass-border/[0.1] flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <info.icon className="w-6 h-6 text-accent-warm" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">
+                      {info.label}
+                    </p>
+                    <p className="text-foreground font-medium">{info.value}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">
-                    {info.label}
-                  </p>
-                  <p className="text-foreground font-medium">{info.value}</p>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
           {/* Contact Form */}
-          <div
-            className="lg:col-span-3 animate-fade-in"
-            style={{ animationDelay: "0.2s" }}
+          <ScrollReveal
+            className="lg:col-span-3"
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <form
               onSubmit={handleSubmit}
@@ -412,7 +417,7 @@ const Contact = () => {
                 )}
               </Button>
             </form>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

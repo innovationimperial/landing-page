@@ -16,11 +16,11 @@ const ClientLogoCarousel: React.FC<ClientLogoCarouselProps> = ({ logos }) => {
     return (
         <div className="w-full relative overflow-hidden h-24 flex items-center">
             {/* Gradient Masks */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-8 md:w-20 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-8 md:w-20 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
 
             <motion.div
-                className="flex items-center gap-12 pr-12"
+                className="flex items-center gap-8 md:gap-12 pr-12"
                 animate={{
                     x: ["0%", "-33.33%"],
                 }}
@@ -45,7 +45,7 @@ const ClientLogoCarousel: React.FC<ClientLogoCarouselProps> = ({ logos }) => {
                             <img
                                 src={logo.src}
                                 alt={logo.alt}
-                                className="h-12 w-auto object-contain max-w-[150px]
+                                className="h-10 md:h-12 w-auto object-contain max-w-[120px] md:max-w-[150px]
                             grayscale opacity-60 transition-all duration-500
                             group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110
                             "

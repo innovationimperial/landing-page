@@ -1,3 +1,4 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import heroBackground from "@/assets/hero-background.jpg";
@@ -10,25 +11,41 @@ import portfolioData from "../../research/portfolio_data.json";
 
 const Hero = () => {
   const navigate = useNavigate();
+  const { scrollY } = useScroll();
+
+  // Parallax transforms
+  const bgY = useTransform(scrollY, [0, 500], [0, 150]);
+  const textY = useTransform(scrollY, [0, 500], [0, -50]);
+  const cardY = useTransform(scrollY, [0, 500], [0, -80]);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
       {/* Cinematic Background */}
-      <div className="absolute inset-0 z-0">
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{ y: bgY }}
+      >
         <img
           src={heroBackground}
           alt="Cinematic background with dramatic lighting"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-110"
         />
         <LiquidHeroBackground imageUrl={heroBackground} />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-transparent" />
-      </div>
+      </motion.div>
 
       {/* Content */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-[60%_40%] gap-12 items-center">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-6 py-20">
+        <div className="grid lg:grid-cols-[60%_40%] gap-8 md:gap-12 items-center">
           {/* Left Column - Headline & CTAs */}
-          <div className="space-y-8 animate-fade-in">
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ y: textY }}
+          >
             <Badge variant="secondary" className="rounded-full px-4 py-2 bg-gradient-glass backdrop-blur-md border border-glass-border/[0.06] text-muted-foreground">
               <Sparkles className="w-3 h-3 mr-2 inline" />
               AWARD-WINNING DESIGN
@@ -44,7 +61,7 @@ const Hero = () => {
               <span className="text-foreground">That Matter</span>
             </h1>
 
-            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed w-full break-words">
               We design interfaces that combine beauty with functionality, creating seamless experiences that users love and businesses thrive on.
             </p>
 
@@ -52,32 +69,31 @@ const Hero = () => {
               <InteractiveHoverButton
                 text="View Portfolio"
                 onClick={() => navigate("/portfolio")}
+                className="min-h-[44px]"
               />
-
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full px-8 bg-gradient-glass backdrop-blur-md border border-glass-border/[0.1] hover:border-glass-border/[0.2] hover:bg-glass-frost/[0.08] transition-all"
-              >
-                Watch Showreel
-              </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Glass KPI Card */}
-          <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <div className="relative p-8 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass">
+          <motion.div
+            className="w-full overflow-hidden"
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            style={{ y: cardY }}
+          >
+            <div className="relative p-6 md:p-8 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass">
               {/* Ambient glow */}
               <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/20 via-transparent to-highlight-magenta/10 opacity-50 blur-xl" />
 
               <div className="relative space-y-6">
                 {/* Main KPI */}
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4 text-center md:text-left">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-glass border border-glass-border/[0.1] flex items-center justify-center">
                     <Sparkles className="w-6 h-6 text-accent-warm" />
                   </div>
                   <div>
-                    <div className="text-5xl font-display font-bold bg-gradient-text bg-clip-text text-transparent">
+                    <div className="text-4xl md:text-5xl font-display font-bold bg-gradient-text bg-clip-text text-transparent">
                       150+
                     </div>
                     <div className="text-sm text-muted-foreground mt-1">Projects Delivered</div>
@@ -99,7 +115,7 @@ const Hero = () => {
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-3 gap-4 pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 pt-4">
                   <div className="text-center p-3 rounded-2xl bg-muted/20">
                     <div className="text-2xl font-display font-bold text-foreground">5+</div>
                     <div className="text-xs text-muted-foreground mt-1">YEARS</div>
@@ -115,19 +131,20 @@ const Hero = () => {
                 </div>
 
                 {/* Tags */}
-                <div className="flex gap-2 pt-2">
+                <div className="flex flex-wrap justify-center md:justify-start gap-2 pt-2">
                   <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs bg-accent-warm/10 text-accent-warm border-accent-warm/20">
                     ● ACTIVE
                   </Badge>
                   <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs bg-highlight-magenta/10 text-highlight-magenta border-highlight-magenta/20">
                     ★ PREMIUM
                   </Badge>
+
                 </div>
               </div>
             </div>
 
             {/* Featured Clients Card */}
-            <div className="mt-6 p-6 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass">
+            <div className="mt-6 p-4 md:p-6 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass">
               <div className="text-sm text-muted-foreground mb-4">Featured Clients</div>
               <ClientLogoCarousel logos={[
                 ...portfolioData.map(p => ({
@@ -138,19 +155,18 @@ const Hero = () => {
                 {
                   src: "/client-logos/contas-logo.svg",
                   alt: "Contas - Accounting & Advisory",
-                  url: "https://contas.co.za/" // Optional: remove URL if they don't want it clickable, but request said "do not include site in portfolio", implying not in the main list. 
-                  // I will keep it clickable for now as usually desired.
+                  url: "https://contas.co.za/"
                 }
-              ]} />
-              {/* Fallback for when no logos are loaded yet? No, filter handles it. */}
+              ]}
+              />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Fog overlay at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
-    </section >
+    </section>
   );
 };
 
