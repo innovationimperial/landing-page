@@ -6,6 +6,7 @@ import { Sparkles } from "lucide-react";
 import LiquidHeroBackground from "./LiquidHeroBackground";
 import { useNavigate } from "react-router-dom";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { InteractiveHoverButtonReverse } from "@/components/ui/interactive-hover-button-reverse";
 import ClientLogoCarousel from "./ClientLogoCarousel";
 import portfolioData from "../../research/portfolio_data.json";
 
@@ -69,6 +70,18 @@ const Hero = () => {
               <InteractiveHoverButton
                 text="View Portfolio"
                 onClick={() => navigate("/portfolio")}
+                className="min-h-[44px]"
+              />
+              <InteractiveHoverButtonReverse
+                text="Let's Talk"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    navigate('/#contact');
+                  }
+                }}
                 className="min-h-[44px]"
               />
             </div>

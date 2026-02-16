@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -79,13 +80,11 @@ const Navigation = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <Button
-              variant="default"
-              className="hidden sm:flex rounded-full px-6 bg-foreground text-background hover:bg-foreground/90 hover:scale-105 transition-all"
+            <InteractiveHoverButton
+              text="Let's Talk"
               onClick={() => scrollToSection("contact")}
-            >
-              Let's Talk →
-            </Button>
+              className="hidden sm:flex w-32 min-h-[44px]"
+            />
 
             {/* Mobile Menu */}
             <div className="md:hidden">
