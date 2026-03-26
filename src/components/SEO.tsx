@@ -13,7 +13,7 @@ const SEO = ({
     title = "Innovation Imperial - Premium Digital Agency",
     description = "Award-winning digital agency crafting cinematic experiences. Specializing in UI/UX design, web development, branding, and strategic consulting.",
     keywords = "digital agency, UI/UX design, web development, branding, strategic consulting, Innovation Imperial",
-    ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+    ogImage = "/og-image.png",
     ogType = "website",
     canonical = window.location.href,
 }: SEOProps) => {
@@ -83,6 +83,32 @@ const SEO = ({
             document.head.appendChild(canonicalLink);
         }
         canonicalLink.setAttribute("href", canonical);
+
+        // Structured Data (JSON-LD)
+        let jsonLdScript = document.querySelector('script[type="application/ld+json"]');
+        if (!jsonLdScript) {
+            jsonLdScript = document.createElement("script");
+            jsonLdScript.setAttribute("type", "application/ld+json");
+            document.head.appendChild(jsonLdScript);
+        }
+
+        const organizationData = {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Innovation Imperial",
+            "url": window.location.origin,
+            "logo": `${window.location.origin}/src/assets/Logo.svg`,
+            "description": description,
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "US"
+            },
+            "sameAs": [
+                "https://x.com/InnovationImperial"
+            ]
+        };
+
+        jsonLdScript.textContent = JSON.stringify(organizationData);
 
     }, [title, description, keywords, ogImage, ogType, canonical]);
 
