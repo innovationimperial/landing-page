@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Contact";
@@ -30,6 +30,14 @@ const itemVariants = {
 
 const Portfolio = () => {
     const [selectedProject, setSelectedProject] = useState<any>(null);
+    const [activeCategory, setActiveCategory] = useState("All");
+
+    const categories = useMemo(() => ["All", ...Array.from(new Set(projectsData.map((p: any) => p.category).filter(Boolean)))], []);
+
+    const filteredProjects = useMemo(() => {
+        if (activeCategory === "All") return projectsData;
+        return projectsData.filter((p: any) => p.category === activeCategory);
+    }, [activeCategory]);
 
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30">
@@ -53,66 +61,94 @@ const Portfolio = () => {
                     </p>
                 </motion.header>
 
+                {/* Filter section */}
                 <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16 relative z-20"
+                >
+                    {categories.map(category => (
+                        <button
+                            key={category as string}
+                            onClick={() => setActiveCategory(category as string)}
+                            className={`px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 border ${activeCategory === category
+                                    ? "bg-primary text-black border-primary shadow-[0_0_20px_rgba(255,215,0,0.3)]"
+                                    : "bg-gradient-glass backdrop-blur-md text-muted-foreground border-glass-border/[0.1] hover:bg-white/10 hover:text-white hover:border-white/20"
+                                }`}
+                        >
+                            {category as string}
+                        </button>
+                    ))}
+                </motion.div>
+
+                <motion.div
+                    layout
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6"
                 >
-                    {projectsData.map((project, index) => {
-                        const spans = index % 5 === 0 ? "lg:col-span-8" : index % 5 === 1 ? "lg:col-span-4" : "lg:col-span-4";
+                    <AnimatePresence mode="popLayout">
+                        {filteredProjects.map((project, index) => {
+                            const spans = index % 5 === 0 ? "lg:col-span-8" : index % 5 === 1 ? "lg:col-span-4" : "lg:col-span-4";
 
-                        return (
-                            <motion.div
-                                key={index}
-                                variants={itemVariants}
-                                className={`${spans} group relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-gradient-glass backdrop-blur-3xl transition-all duration-500 hover:border-primary/30 hover:shadow-card-hover cursor-pointer`}
-                                onClick={() => setSelectedProject(project)}
-                            >
-                                <div className="aspect-[16/10] w-full overflow-hidden relative">
-                                    <div className="absolute inset-0 z-0">
-                                        <img
-                                            src={`/portfolio/${project.screenshot}`}
-                                            alt={project.title}
-                                            className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
-                                        />
-                                    </div>
-
-                                    <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent opacity-80 group-hover:opacity-70 transition-opacity z-10" />
-
-                                    {project.status === "404" && (
-                                        <div className="absolute top-6 right-6 z-20">
-                                            <div className="px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 backdrop-blur-md text-destructive text-[10px] font-bold tracking-widest uppercase animate-pulse">
-                                                Maintenance Mode
-                                            </div>
+                            return (
+                                <motion.div
+                                    key={project.url || project.title}
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.4 }}
+                                    className={`${spans} group relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-gradient-glass backdrop-blur-3xl transition-all duration-500 hover:border-primary/30 hover:shadow-card-hover cursor-pointer`}
+                                    onClick={() => setSelectedProject(project)}
+                                >
+                                    <div className="aspect-[16/10] w-full overflow-hidden relative">
+                                        <div className="absolute inset-0 z-0">
+                                            <img
+                                                src={`/portfolio/${project.screenshot}`}
+                                                alt={project.title}
+                                                className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
+                                            />
                                         </div>
-                                    )}
-                                </div>
 
-                                <div className="p-10">
-                                    <h3 className="text-3xl font-bold mb-4 tracking-tight group-hover:text-primary transition-colors">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-muted-foreground text-lg line-clamp-2 mb-8 leading-relaxed font-light">
-                                        {project.description}
-                                    </p>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent opacity-80 group-hover:opacity-70 transition-opacity z-10" />
 
-                                    <div className="flex items-center gap-4">
-                                        <button
-                                            className="group/link flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-sm font-semibold hover:bg-white/10 hover:border-primary/50 transition-all duration-300"
-                                        >
-                                            View Details
-                                            <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                            </svg>
-                                        </button>
+                                        {project.status === "404" && (
+                                            <div className="absolute top-6 right-6 z-20">
+                                                <div className="px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 backdrop-blur-md text-destructive text-[10px] font-bold tracking-widest uppercase animate-pulse">
+                                                    Maintenance Mode
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
-                                </div>
 
-                                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-transparent to-accent-warm/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl" />
-                            </motion.div>
-                        );
-                    })}
+                                    <div className="p-10">
+                                        <h3 className="text-3xl font-bold mb-4 tracking-tight group-hover:text-primary transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-muted-foreground text-lg line-clamp-2 mb-8 leading-relaxed font-light">
+                                            {project.description}
+                                        </p>
+
+                                        <div className="flex items-center gap-4">
+                                            <button
+                                                className="group/link flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-sm font-semibold hover:bg-white/10 hover:border-primary/50 transition-all duration-300"
+                                            >
+                                                View Details
+                                                <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/5 via-transparent to-accent-warm/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl" />
+                                </motion.div>
+                            );
+                        })}
+                    </AnimatePresence>
                 </motion.div>
             </main>
 

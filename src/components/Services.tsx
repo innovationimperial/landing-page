@@ -79,7 +79,7 @@ const Services = () => {
                 className={`group relative p-8 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass hover:shadow-card-hover transition-all duration-500 h-full`}
               >
                 {/* Ambient glow on hover */}
-                <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/10 via-transparent to-highlight-magenta/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+                <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/10 via-transparent to-highlight-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
                 <div className="relative">
                   {/* Header with icon and tag */}
@@ -88,7 +88,7 @@ const Services = () => {
                       <service.icon className="w-8 h-8 text-accent-warm" />
                     </div>
                     {service.tag && (
-                      <Badge className="rounded-full px-3 py-1 bg-highlight-magenta/10 text-highlight-magenta border-highlight-magenta/20">
+                      <Badge className="rounded-full px-3 py-1 bg-highlight-gold/10 text-highlight-gold border-highlight-gold/20">
                         {service.tag}
                       </Badge>
                     )}

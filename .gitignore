@@ -25,3 +25,5 @@ yarn-error.log*
 
 # Agent Configuration
 .agent/skills
+research
+.playwright-mcp

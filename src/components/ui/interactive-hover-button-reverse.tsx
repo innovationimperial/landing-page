@@ -15,7 +15,7 @@ const InteractiveHoverButtonReverse = React.forwardRef<
         <button
             ref={ref}
             className={cn(
-                "group relative w-44 cursor-pointer overflow-hidden rounded-full border border-white/40 bg-transparent p-2 text-center font-semibold text-white transition-colors duration-300 hover:border-purple-600 hover:text-white",
+                "group relative w-44 cursor-pointer overflow-hidden rounded-full border border-white/40 bg-transparent p-2 text-center font-semibold text-white transition-colors duration-300 hover:border-primary hover:text-primary-foreground",
                 className,
             )}
             {...props}
@@ -37,7 +37,7 @@ const InteractiveHoverButtonReverse = React.forwardRef<
             </div>
 
             {/* The Arrow/Dot Element - Starts on Right, Expands Left */}
-            <div className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 scale-[1] rounded-full bg-purple-600 transition-all duration-300 group-hover:right-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:translate-y-0 group-hover:scale-[1.8] group-hover:rounded-none z-0 flex items-center justify-center">
+            <div className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8 scale-[1] rounded-full bg-primary transition-all duration-300 group-hover:right-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:translate-y-0 group-hover:scale-[1.8] group-hover:rounded-none z-0 flex items-center justify-center">
                 <ArrowRight className="w-4 h-4 text-white opacity-100 group-hover:opacity-0 transition-opacity duration-200" />
             </div>
         </button>

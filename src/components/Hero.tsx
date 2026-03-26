@@ -97,7 +97,7 @@ const Hero = () => {
           >
             <div className="relative p-6 md:p-8 rounded-3xl bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass">
               {/* Ambient glow */}
-              <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/20 via-transparent to-highlight-magenta/10 opacity-50 blur-xl" />
+              <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/20 via-transparent to-highlight-gold/10 opacity-50 blur-xl" />
 
               <div className="relative space-y-6">
                 {/* Main KPI */}
@@ -121,7 +121,7 @@ const Hero = () => {
                   </div>
                   <div className="h-2 rounded-full bg-muted/30 overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-accent-warm to-highlight-magenta rounded-full shadow-glow transition-all duration-1000"
+                      className="h-full bg-gradient-to-r from-accent-warm to-highlight-gold rounded-full shadow-glow transition-all duration-1000"
                       style={{ width: "98%" }}
                     />
                   </div>
@@ -148,7 +148,7 @@ const Hero = () => {
                   <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs bg-accent-warm/10 text-accent-warm border-accent-warm/20">
                     ● ACTIVE
                   </Badge>
-                  <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs bg-highlight-magenta/10 text-highlight-magenta border-highlight-magenta/20">
+                  <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs bg-highlight-gold/10 text-highlight-gold border-highlight-gold/20">
                     ★ PREMIUM
                   </Badge>
 

@@ -135,7 +135,7 @@ const Projects = () => {
 
                   {/* Hover glow effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent-warm/20 via-transparent to-highlight-magenta/20 blur-xl" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent-warm/20 via-transparent to-highlight-gold/20 blur-xl" />
                   </div>
 
                   {/* Hover lift effect */}

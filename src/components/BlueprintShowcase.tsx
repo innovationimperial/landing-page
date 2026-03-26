@@ -320,10 +320,10 @@ const BlueprintShowcase = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-20 pointer-events-none" />
 
             <div className="relative z-30 max-w-7xl mx-auto px-6 mb-16 text-center">
-                <Badge variant="outline" className="mb-6 rounded-full px-4 py-1.5 bg-highlight-magenta/10 border-highlight-magenta/30 text-highlight-magenta">
+                <Badge variant="outline" className="mb-6 rounded-full px-4 py-1.5 bg-highlight-gold/10 border-highlight-gold/30 text-highlight-gold">
                     <span className="relative flex h-2 w-2 mr-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-highlight-magenta opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-highlight-magenta"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-highlight-gold opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-highlight-gold"></span>
                     </span>
                     System Transparent
                 </Badge>

@@ -55,7 +55,7 @@ const Testimonials = () => {
               style={{ animationDelay: `${idx * 0.1}s` }}
             >
               {/* Ambient glow on hover */}
-              <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/10 via-transparent to-highlight-magenta/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+              <div className="absolute -inset-px rounded-3xl bg-gradient-to-br from-accent-warm/10 via-transparent to-highlight-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
               <div className="relative">
                 {/* Quote icon */}
@@ -70,7 +70,7 @@ const Testimonials = () => {
 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-warm/30 to-highlight-magenta/30 border border-glass-border/[0.1] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-warm/30 to-highlight-gold/30 border border-glass-border/[0.1] flex items-center justify-center">
                     <span className="text-sm font-semibold text-foreground">{testimonial.avatar}</span>
                   </div>
                   <div>

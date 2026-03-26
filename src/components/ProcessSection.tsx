@@ -20,7 +20,7 @@ const steps = [
         roi: "We build the logic that converts traffic into leads/sales.",
         description: "Beyond just 'designing', we engineer a path for your users. We map out high-conversion funnels and automate repetitive administrative tasks to free up your team.",
         icon: PenTool,
-        color: "highlight-magenta",
+        color: "highlight-gold",
         benefits: ["Funnel Mapping", "Process Automation", "System Architecture"],
     },
     {
@@ -38,7 +38,7 @@ const steps = [
         roi: "We measure everything to ensure your business actually grows.",
         description: "Launch is only the beginning. We set up real-time ROI tracking and data dashboards so you can see exactly how our work is affecting your bottom line.",
         icon: Rocket,
-        color: "highlight-magenta",
+        color: "highlight-gold",
         benefits: ["ROI Dashboards", "A/B Testing", "Performance Scaling"],
     },
 ];
@@ -64,7 +64,7 @@ const ProcessSection = () => {
             {/* Scroll Timeline Line */}
             <div className="absolute left-1/2 -translate-x-1/2 top-48 bottom-48 w-px bg-glass-border/[0.1] hidden lg:block z-0">
                 <motion.div
-                    className="absolute top-0 left-0 w-full bg-gradient-to-b from-accent-warm via-highlight-magenta to-accent-warm origin-top"
+                    className="absolute top-0 left-0 w-full bg-gradient-to-b from-accent-warm via-highlight-gold to-accent-warm origin-top"
                     style={{ scaleY }}
                 />
             </div>
@@ -98,13 +98,13 @@ const ProcessSection = () => {
                                 className="group relative p-8 md:p-10 rounded-[2.5rem] bg-gradient-glass backdrop-blur-2xl border border-glass-border/[0.06] shadow-glass hover:shadow-card-hover transition-all duration-500 flex flex-col h-full"
                             >
                                 {/* Animated hover glow */}
-                                <div className="absolute -inset-px rounded-[2.5rem] bg-gradient-to-br from-accent-warm/15 via-transparent to-highlight-magenta/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
+                                <div className="absolute -inset-px rounded-[2.5rem] bg-gradient-to-br from-accent-warm/15 via-transparent to-highlight-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
 
                                 <div className="relative flex-1">
                                     {/* Step Marker & Icon */}
                                     <div className="flex items-center justify-between mb-10">
                                         <div className={`w-20 h-20 rounded-[1.5rem] bg-gradient-glass border border-glass-border/[0.1] flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
-                                            <step.icon className={`w-10 h-10 ${step.color === 'accent-warm' ? 'text-accent-warm' : 'text-highlight-magenta'}`} />
+                                            <step.icon className={`w-10 h-10 ${step.color === 'accent-warm' ? 'text-accent-warm' : 'text-highlight-gold'}`} />
                                         </div>
                                         <span className="text-6xl font-display font-black text-foreground/5 select-none transition-colors group-hover:text-foreground/10">
                                             0{step.id}
