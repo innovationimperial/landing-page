@@ -97,7 +97,7 @@ const SEO = ({
             "@type": "Organization",
             "name": "Innovation Imperial",
             "url": window.location.origin,
-            "logo": `${window.location.origin}/src/assets/Logo.svg`,
+            "logo": `${window.location.origin}/favicon-logo.svg`,
             "description": description,
             "address": {
                 "@type": "PostalAddress",
