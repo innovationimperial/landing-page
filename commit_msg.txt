@@ -1,0 +1,10 @@
+perf(seo/geo): implement comprehensive optimization and brand consolidation
+
+- Added explicit permissions for AI bots (GPTBot, PerplexityBot, etc.) in robots.txt
+- Consolidated canonical domain to innovationimperial.co.za in index.html and SEO.tsx
+- Enriched Organization JSON-LD with Founders (Ntsane Foulo, McMarsh Dzwimbu) and Team
+- Integrated final social links (Facebook, Instagram, X) and office email
+- Corrected Twitter/X handle to @innov_imperial across all meta tags
+- Updated sitemap.xml with correct domain and weekly update frequency
+- Added FAQPage schema for better AI search citation potential
+- Updated Footer.tsx contact info (Phone: 27 69 790 6374, Email: office@innovationimperial.net)
