@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 
 const Booking = () => {
@@ -86,6 +87,7 @@ const Booking = () => {
           </motion.div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

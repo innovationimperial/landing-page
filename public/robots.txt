@@ -1,3 +1,17 @@
 User-agent: *
 Allow: /
-Sitemap: https://innovationimperial.com/sitemap.xml
+
+# GEO (Generative Engine Optimization) - Explicit Allow for AI Bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+Sitemap: https://innovationimperial.co.za/sitemap.xml

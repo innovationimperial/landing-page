@@ -7,6 +7,7 @@ import BlueprintShowcase from "@/components/BlueprintShowcase";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import SEO from "@/components/SEO";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <BlueprintShowcase />
       <Testimonials />
       <Contact />
+      <Footer />
     </div>
   );
 };

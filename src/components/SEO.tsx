@@ -15,7 +15,7 @@ const SEO = ({
     keywords = "digital agency, UI/UX design, web development, branding, strategic consulting, Innovation Imperial",
     ogImage = "/og-image.png",
     ogType = "website",
-    canonical = window.location.href,
+    canonical = "https://innovationimperial.co.za",
 }: SEOProps) => {
     useEffect(() => {
         // Update title
@@ -96,19 +96,77 @@ const SEO = ({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Innovation Imperial",
-            "url": window.location.origin,
-            "logo": `${window.location.origin}/favicon-logo.svg`,
+            "url": "https://innovationimperial.co.za",
+            "logo": "https://innovationimperial.co.za/favicon-logo.svg",
+            "image": "https://innovationimperial.co.za/og-image.png",
             "description": description,
+            "email": "office@innovationimperial.net",
+            "telephone": "27697906374",
+            "founder": [
+                {
+                    "@type": "Person",
+                    "name": "Ntsane Foulo",
+                    "jobTitle": "CEO & Founder"
+                },
+                {
+                    "@type": "Person",
+                    "name": "McMarsh Dzwimbu",
+                    "jobTitle": "COO & Founder"
+                }
+            ],
+            "member": [
+               {
+                  "@type": "Person",
+                  "name": "Enock Ndoy",
+                  "jobTitle": "CTO"
+               },
+               {
+                  "@type": "Person",
+                  "name": "Tonderai Dzwimbu",
+                  "jobTitle": "CFO"
+               },
+               {
+                  "@type": "Person",
+                  "name": "Mtandazo Dube",
+                  "jobTitle": "CSO"
+               }
+            ],
+            "sameAs": [
+                "https://www.facebook.com/people/Innovation-imperial-Technology-hub/61585235175645/",
+                "https://www.instagram.com/innovation.imperial/",
+                "https://x.com/innov_imperial"
+            ],
             "address": {
                 "@type": "PostalAddress",
-                "addressCountry": "US"
-            },
-            "sameAs": [
-                "https://x.com/InnovationImperial"
-            ]
+                "addressLocality": "Johannesburg",
+                "addressCountry": "ZA"
+            }
         };
 
-        jsonLdScript.textContent = JSON.stringify(organizationData);
+        const faqData = {
+           "@context": "https://schema.org",
+           "@type": "FAQPage",
+           "mainEntity": [
+             {
+               "@type": "Question",
+               "name": "What services does Innovation Imperial offer?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "Innovation Imperial specializes in cinematic UI/UX design, custom web development, premium branding, and strategic digital consulting."
+               }
+             },
+             {
+               "@type": "Question",
+               "name": "Where is Innovation Imperial based?",
+               "acceptedAnswer": {
+                 "@type": "Answer",
+                 "text": "We are a premium digital agency based in Johannesburg, South Africa, serving clients globally."
+               }
+             }
+           ]
+        };
+
+        jsonLdScript.textContent = JSON.stringify([organizationData, faqData]);
 
     }, [title, description, keywords, ogImage, ogType, canonical]);
 

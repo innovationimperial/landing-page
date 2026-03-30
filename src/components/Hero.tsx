@@ -107,7 +107,7 @@ const Hero = () => {
                   </div>
                   <div>
                     <div className="text-4xl md:text-5xl font-display font-bold bg-gradient-text bg-clip-text text-transparent">
-                      150+
+                      25+
                     </div>
                     <div className="text-sm text-muted-foreground mt-1">Projects Delivered</div>
                   </div>
@@ -130,7 +130,7 @@ const Hero = () => {
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 pt-4">
                   <div className="text-center p-3 rounded-2xl bg-muted/20">
-                    <div className="text-2xl font-display font-bold text-foreground">5+</div>
+                    <div className="text-2xl font-display font-bold text-foreground">4+</div>
                     <div className="text-xs text-muted-foreground mt-1">YEARS</div>
                   </div>
                   <div className="text-center p-3 rounded-2xl bg-muted/20">

@@ -2,7 +2,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useMemo } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Contact";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import projectsData from "../../research/portfolio_data.json";
 import { ExternalLink, X } from "lucide-react";
 
@@ -152,6 +153,7 @@ const Portfolio = () => {
                 </motion.div>
             </main>
 
+            <Contact />
             <Footer />
 
             <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
