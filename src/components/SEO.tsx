@@ -97,7 +97,7 @@ const SEO = ({
             "@type": "Organization",
             "name": "Innovation Imperial",
             "url": "https://innovationimperial.co.za",
-            "logo": "https://innovationimperial.co.za/favicon-logo.svg",
+            "logo": "https://innovationimperial.co.za/new_favicon_logo.svg",
             "image": "https://innovationimperial.co.za/og-image.png",
             "description": description,
             "email": "office@innovationimperial.net",
