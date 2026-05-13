@@ -111,7 +111,7 @@ const SEO = ({
                 {
                     "@type": "Person",
                     "name": "McMarsh Dzwimbu",
-                    "jobTitle": "COO & Founder"
+                    "jobTitle": "AI Engineer"
                 }
             ],
             "member": [

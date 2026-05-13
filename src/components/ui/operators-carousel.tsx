@@ -32,7 +32,7 @@ const OPERATORS = [
   },
   {
     name: 'McMarsh Dzwimbu',
-    role: 'COO & Co-Founder',
+    role: 'AI Engineer',
     bio: 'Operations and AI architect. Designs intelligent systems that integrate seamlessly into enterprise workflows, bridging strategy and execution.',
     image: '/team_pictures/coo.svg',
     icon: <BarChart3 size={22} className="text-primary" />,
